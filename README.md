@@ -1,2 +1,3 @@
-# Symfony-Website
-I created this project thanks to my courses and some personal research. 
+# Symfony-Website ✔
+This project was created during my degree. I created it with my lessons and some personal research.
+

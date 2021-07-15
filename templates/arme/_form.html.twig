@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+Nom de l'arme :
+<br>
+{{ form_widget(form.nomArme, {'attr':{'class':'form-control'}}) }}
+<br>
+Type de l'arme :
+<br>
+{{ form_widget(form.typeArme, {'attr':{'class':'form-control'}}) }}
+<br>
+Accessoire disponible :
+<br>
+{{ form_widget(form.accessoire, {'attr':{'class':'form-control'}}) }}
+<br>
+<br>
+<button class="addbtn">{{ button_label|default('Ajouter') }}</button>
+
+{{ form_end(form) }}

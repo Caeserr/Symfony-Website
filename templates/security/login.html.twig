@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Battlefield | Login
+{% endblock %}
+
+{% block stylesheets %}
+
+	{{ encore_entry_link_tags('login') }}
+
+
+{% endblock %}
+{% block body %}
+	<div class="login-container">
+		<div class="form-login">
+			<ul class="login-nav">
+				<li class="login-nav__item active">
+					<a href="#">Connexion</a>
+				</li>
+				<br><br>
+				<li class="login-nav__item">
+					<a href=" {{ path('app_register') }} ">Créer un compte</a>
+				</li>
+
+			</ul>
+			<form method="post">
+
+				{% if error %}
+					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+				{% endif %}
+
+				{% if app.user %}
+					<div class="mb-3">
+						Vous êtes connecté en tant que
+						{{ app.user.username }},
+						<a href="{{ path('app_logout') }}">Logout</a>
+					</div>
+				{% endif %}
+
+				<label for="login-input-user" class="login__label">
+					Email
+				</label>
+				<input type="email" name="email" id="inputEmail" class="login__input" autocomplete="email" required autofocus>
+
+				<label for="login-input-password" class="login__label">
+					Password
+				</label>
+				<input type="password" name="password" id="inputPassword" autocomplete="current-password" class="login__input" required autofocus>
+
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				<button class="login__submit" type="submit">Connexion</button>
+
+
+			</form>
+
+		</div>
+
+	</div>
+	<div class="shadow"></div>
+{% endblock %}

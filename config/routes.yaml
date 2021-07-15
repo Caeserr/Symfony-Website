@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+add_users:
+  path: /add_users
+  controller: App\Controller\AccessoireController::add

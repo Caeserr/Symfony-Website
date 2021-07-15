@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Battlefield | Register
+{% endblock %}
+{% block stylesheets %}
+
+	{{ encore_entry_link_tags('login') }}
+
+
+{% endblock %}
+
+{% block body %}
+
+	<div class="login-container">
+		<div class="form-login">
+			<ul class="login-nav">
+				<li class="login-nav__item">
+					<a href=" {{ path('app_login') }} ">Connexion</a>
+				</li>
+				<br><br>
+				<li class="login-nav__item active">
+					<a href="#">Créer un compte</a>
+				</li>
+
+			</ul>
+			{% for flashError in app.flashes('verify_email_error') %}
+				<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+			{% endfor %}
+
+
+			{{ form_start(registrationForm) }}
+			<label for="login-input-user" class="login__label">Username</label>
+			{{ form_widget(registrationForm.username, {'attr':{'class':'login__input'}}) }}
+
+			<label for="login-input-mail" class="login__label">
+				Email
+			</label>
+			{{ form_widget(registrationForm.email, {'attr':{'class':'login__input'}}) }}
+
+			<label for="login-input-password" class="login__label">
+				Password
+			</label>
+			{{ form_widget(registrationForm.plainPassword, {'attr':{'class':'login__input'}}) }}
+
+			<br><br><hr>
+			<button type="submit" class="login__submit">Envoyer</button>
+			{{ form_end(registrationForm) }}
+		</div>
+	</div>
+	<div class="shadow"></div>
+{% endblock %}
